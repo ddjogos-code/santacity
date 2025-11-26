@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxa2blrxvdqxd"]
+
+[ext_resource type="Texture2D" uid="uid://0fd3x150jsrw" path="res://Tiles/A2.png" id="1_x7ss6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oen1g"]
+size = Vector2(48, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_tt86l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 1.4843416, 42.40976, -1.4843416, -42.40976, 64, -56, -0.42409682, 44.10615, 0.42409682, -44.10615, 0, -128, -69.552, -0.63614637, 69.552, 0.63614637, 64, -192)
+}
+point_count = 4
+
+[sub_resource type="Animation" id="Animation_3lu44"]
+resource_name = "movimento"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9920487, 2.350928),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8qglj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwnbh"]
+_data = {
+&"RESET": SubResource("Animation_8qglj"),
+&"movimento": SubResource("Animation_3lu44")
+}
+
+[node name="Plataforma" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(24.527998, -94.50675)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_x7ss6")
+region_enabled = true
+region_rect = Rect2(335.90314, 255.95102, 48.19751, 16.19754)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_oen1g")
+one_way_collision = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tt86l")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../../CharacterBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bwnbh")
+}
+autoplay = "movimento"

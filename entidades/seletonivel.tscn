@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2bjr54yv6et0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbhbc"]
+
+[node name="Seletonivel" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mbhbc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

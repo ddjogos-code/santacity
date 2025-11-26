@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://db36b8rjobpcq"
+path="res://.godot/imported/Raining Bits LowFi.ogg-3f145713b7b7adc7c247399ddb3c2f90.oggvorbisstr"
+
+[deps]
+
+source_file="res://entidades/Raining Bits LowFi.ogg"
+dest_files=["res://.godot/imported/Raining Bits LowFi.ogg-3f145713b7b7adc7c247399ddb3c2f90.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
