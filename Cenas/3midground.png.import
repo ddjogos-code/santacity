@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbkw2ql8jr2d0"
-path="res://.godot/imported/layer2_horizon.png-51186e04afb720368a9259138ca078d5.ctex"
+uid="uid://cuxhsckvogupv"
+path="res://.godot/imported/3midground.png-57bb7266f7a331232a5618b832ed1f94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://background/layer2_horizon.png"
-dest_files=["res://.godot/imported/layer2_horizon.png-51186e04afb720368a9259138ca078d5.ctex"]
+source_file="res://Cenas/3midground.png"
+dest_files=["res://.godot/imported/3midground.png-57bb7266f7a331232a5618b832ed1f94.ctex"]
 
 [params]
 

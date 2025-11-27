@@ -51,9 +51,6 @@ func atualizar_animacao():
 func preparar_parado():
 	estado_atual = EstadoPlayer.parado
 	animacao_player.play("parado")
-	
-func preparar_andando():
-	pass
 
 func player_andando(_delta):
 	pass
@@ -63,6 +60,7 @@ func pode_pular():
 		return true
 	else:
 		return false
+		
 func pular(delta):
 	ativar_gravidade(delta)
 	mover(delta)

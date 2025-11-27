@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6s346fxtgw88"
-path="res://.godot/imported/Designer-4.png-dec0ddb693f613ed75dc5d591fb292bb.ctex"
+uid="uid://d0yrdj2pv2liq"
+path="res://.godot/imported/vegetacao.png-fc46b3e26b84e185fa708fb4d7bc7989.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/Designer-4.png"
-dest_files=["res://.godot/imported/Designer-4.png-dec0ddb693f613ed75dc5d591fb292bb.ctex"]
+source_file="res://Cenas/vegetacao.png"
+dest_files=["res://.godot/imported/vegetacao.png-fc46b3e26b84e185fa708fb4d7bc7989.ctex"]
 
 [params]
 
