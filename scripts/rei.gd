@@ -8,25 +8,26 @@ const JUMP_VELOCITY = -400.0
 enum EstadoPlayer{
 	parado,
 	andando,
-	pulando
+	pulando,
+	caindo
 }
 var estado_atual: EstadoPlayer
 var direction = 0
+
+func _ready() -> void:
+	preparar_parado()
+
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	ativar_gravidade(delta)
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	match estado_atual:
+		EstadoPlayer.parado:
+			parado(delta)
+		EstadoPlayer.andando:
+			andando(delta)
+		EstadoPlayer.pulando:
+			pulando(delta)
+		EstadoPlayer.caindo:
+			caindo(delta)
+	
 
 	move_and_slide()
 
@@ -36,6 +37,7 @@ func ativar_gravidade(delta):
 		velocity += get_gravity() * delta
 	
 func mover(delta):
+	atualizar_animacao()
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, 400 * delta)
 	else:
@@ -52,8 +54,39 @@ func preparar_parado():
 	estado_atual = EstadoPlayer.parado
 	animacao_player.play("parado")
 
-func player_andando(_delta):
-	pass
+func andando(delta):
+	ativar_gravidade(delta)
+	mover(delta)
+	
+	if velocity.x == 0:
+		preparar_parado()
+		return
+	
+	if Input.is_action_just_pressed("jump"):
+		preparar_pulo()
+		return
+		
+	if not is_on_floor():
+		jump_count +=1
+		preparar_caindo()
+		return
+		
+func caindo(delta):
+	ativar_gravidade(delta)
+	mover(delta)
+	
+	if Input.is_action_just_pressed("jump") and pode_pular():
+		preparar_pulo()
+		return
+		
+	if is_on_floor():
+		jump_count = 0
+		
+		if velocity.x == 0:
+			preparar_parado()
+		else:
+			preparar_andando()
+		return
 
 func pode_pular():
 	if jump_count < MAX_JUMP:
@@ -61,13 +94,16 @@ func pode_pular():
 	else:
 		return false
 		
-func pular(delta):
+func pulando(delta):
 	ativar_gravidade(delta)
 	mover(delta)
 	
 	if  Input.is_action_just_pressed("jump") && pode_pular():
+		preparar_pulo()
 		return
+		
 	if velocity.y > 0:
+		preparar_caindo()
 		return
 
 
@@ -75,6 +111,7 @@ func parado(delta):
 	ativar_gravidade(delta)
 	mover (delta)
 	if velocity.x != 0 :
+		preparar_andando()
 		return
 
 	if Input.is_action_just_pressed("jump"):
@@ -92,4 +129,9 @@ func preparar_andando():
 	estado_atual = EstadoPlayer.andando
 	animacao_player.play("andando")
 	
+func preparar_caindo():
+	estado_atual = EstadoPlayer.caindo
+	animacao_player.play("parado")
+
+
 	
