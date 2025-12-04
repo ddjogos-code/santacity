@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var animacao_player: AnimatedSprite2D = $AnimatedSprite2D
 const MAX_JUMP = 2
 var jump_count = 0
+var jump_pad_max = -1000
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 enum EstadoPlayer{

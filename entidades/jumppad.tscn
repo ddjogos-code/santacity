@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkvsr5osuex7n"]
+
+[ext_resource type="Script" uid="uid://dbnu25bg842hu" path="res://jumppad.gd" id="1_srcfo"]
+[ext_resource type="Texture2D" uid="uid://32ii5jjb1wck" path="res://Tiles/kenney_16x16 2.png" id="1_xkm1q"]
+
+[sub_resource type="Animation" id="Animation_srcfo"]
+resource_name = "ativar"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, -2, 4.92),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2f408"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ob311"]
+_data = {
+&"RESET": SubResource("Animation_2f408"),
+&"ativar": SubResource("Animation_srcfo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi31r"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80kco"]
+size = Vector2(16, 8)
+
+[node name="JUMPPAD" type="Node2D"]
+script = ExtResource("1_srcfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xkm1q")
+region_enabled = true
+region_rect = Rect2(48.208126, 273.5104, 16.263378, 15.934174)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ob311")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_bi31r")
+debug_color = Color(0.8538957, 0.18476817, 0.7842999, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_80kco")
+debug_color = Color(0.1454851, 0.5971215, 0.68108416, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

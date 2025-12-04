@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvt4xe4ngtylh"]
+
+[ext_resource type="Texture2D" uid="uid://01o3ps2bbpe1" path="res://Sprites/bird_1_bluejay.png" id="1_f7mns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r664f"]
+size = Vector2(24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m48he"]
+atlas = ExtResource("1_f7mns")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy4ev"]
+atlas = ExtResource("1_f7mns")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj5mv"]
+atlas = ExtResource("1_f7mns")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_er7o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m48he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy4ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj5mv")
+}],
+"loop": true,
+"name": &"voando",
+"speed": 12.0
+}]
+
+[node name="arara" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_r664f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(5, -1.3750005)
+scale = Vector2(1.0625, 0.9765625)
+sprite_frames = SubResource("SpriteFrames_er7o3")
+animation = &"voando"
+autoplay = "voando"
+frame_progress = 0.55362266

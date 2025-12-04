@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://rfcqhilnt1rn"]
+[gd_scene load_steps=15 format=4 uid="uid://rfcqhilnt1rn"]
 
 [ext_resource type="Script" uid="uid://cie0mfeicaqy1" path="res://scripts/saubal.gd" id="1_if4s6"]
 [ext_resource type="Texture2D" uid="uid://upfuo7r1p76s" path="res://Tiles/Tiles-2.png" id="2_0j8cb"]
 [ext_resource type="PackedScene" uid="uid://c4pqsysnduox" path="res://camera.tscn" id="3_1g5x0"]
 [ext_resource type="PackedScene" uid="uid://bfmhvlvpy23iw" path="res://entidades/rei.tscn" id="4_if4s6"]
-[ext_resource type="Texture2D" uid="uid://35tqciqgu7k6" path="res://Cenas/1sky.png" id="5_hwhkd"]
-[ext_resource type="Texture2D" uid="uid://cin6xl3c5d64s" path="res://Cenas/2background.png" id="6_1g5x0"]
-[ext_resource type="Texture2D" uid="uid://cuxhsckvogupv" path="res://Cenas/3midground.png" id="7_if4s6"]
-[ext_resource type="Texture2D" uid="uid://cjgxhayb114c4" path="res://Cenas/4foreground.png" id="8_mrk1e"]
+[ext_resource type="PackedScene" uid="uid://dkvsr5osuex7n" path="res://entidades/jumppad.tscn" id="8_7inoi"]
+[ext_resource type="PackedScene" uid="uid://dd4bais3xq8jk" path="res://entidades/voando.tscn" id="11_1g5x0"]
 [ext_resource type="PackedScene" uid="uid://bxa2blrxvdqxd" path="res://entidades/plataforma.tscn" id="11_hwhkd"]
 [ext_resource type="AudioStream" uid="uid://b2cerhcgl0s01" path="res://sons/Raining Bits LowFi.ogg" id="13_mrk1e"]
 
@@ -5753,55 +5751,14 @@ zoom = Vector2(0.3, 0.3)
 [node name="Rei" parent="." instance=ExtResource("4_if4s6")]
 position = Vector2(16, 104)
 
-[node name="Parallax" type="Node2D" parent="."]
-texture_filter = 1
-
-[node name="Ceu" type="Parallax2D" parent="Parallax"]
-texture_filter = 1
-scroll_offset = Vector2(880, -368)
-repeat_times = 10
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Ceu"]
-z_index = 3
-texture_filter = 1
-position = Vector2(-504, 103.999985)
-scale = Vector2(0.4886493, 0.5377889)
-texture = ExtResource("5_hwhkd")
-
-[node name="Cidade" type="Parallax2D" parent="Parallax"]
-texture_filter = 1
-scroll_offset = Vector2(880, -368)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Cidade"]
-texture_filter = 1
-position = Vector2(-504.00003, 192)
-scale = Vector2(0.4882812, 0.4863281)
-texture = ExtResource("6_1g5x0")
-
-[node name="Vegetacao" type="Parallax2D" parent="Parallax"]
-texture_filter = 1
-scroll_offset = Vector2(880, -368)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Vegetacao"]
-z_index = -1
-texture_filter = 1
-position = Vector2(-504, 304)
-scale = Vector2(0.48764035, 0.6333776)
-texture = ExtResource("7_if4s6")
-
-[node name="Pavimento" type="Parallax2D" parent="Parallax"]
-texture_filter = 1
-scroll_offset = Vector2(880, -368)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Pavimento"]
-z_index = -1
-texture_filter = 1
-position = Vector2(-504, 432.00003)
-scale = Vector2(0.48754877, 0.27644503)
-texture = ExtResource("8_mrk1e")
-
 [node name="Plataforma2" parent="." instance=ExtResource("11_hwhkd")]
 position = Vector2(304, 40)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_mrk1e")
+
+[node name="Node2D" parent="." instance=ExtResource("11_1g5x0")]
+position = Vector2(8, 88)
+
+[node name="JUMPPAD" parent="." instance=ExtResource("8_7inoi")]
+position = Vector2(424, 88)
