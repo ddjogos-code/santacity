@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuxhsckvogupv"
-path="res://.godot/imported/3midground.png-57bb7266f7a331232a5618b832ed1f94.ctex"
+uid="uid://xid8g6uyif1s"
+path="res://.godot/imported/3_trees.png-3cec04a8ce89dc8c8eabb3a040f399d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cenas/3midground.png"
-dest_files=["res://.godot/imported/3midground.png-57bb7266f7a331232a5618b832ed1f94.ctex"]
+source_file="res://Cenas/3_trees.png"
+dest_files=["res://.godot/imported/3_trees.png-3cec04a8ce89dc8c8eabb3a040f399d6.ctex"]
 
 [params]
 

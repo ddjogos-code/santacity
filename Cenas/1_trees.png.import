@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0yrdj2pv2liq"
-path="res://.godot/imported/vegetacao.png-fc46b3e26b84e185fa708fb4d7bc7989.ctex"
+uid="uid://c0widw3xik46"
+path="res://.godot/imported/1_trees.png-9f79f58f0714d255bd45944fd99cf3ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cenas/vegetacao.png"
-dest_files=["res://.godot/imported/vegetacao.png-fc46b3e26b84e185fa708fb4d7bc7989.ctex"]
+source_file="res://Cenas/1_trees.png"
+dest_files=["res://.godot/imported/1_trees.png-9f79f58f0714d255bd45944fd99cf3ab.ctex"]
 
 [params]
 

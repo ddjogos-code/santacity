@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://35tqciqgu7k6"
-path="res://.godot/imported/1sky.png-bc9a574e02ea19fb908ce5c574daf517.ctex"
+uid="uid://dgbslxitvjkfi"
+path="res://.godot/imported/2_trees.png-1ba33b45f4b26d08c3bc41475c715644.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cenas/1sky.png"
-dest_files=["res://.godot/imported/1sky.png-bc9a574e02ea19fb908ce5c574daf517.ctex"]
+source_file="res://Cenas/2_trees.png"
+dest_files=["res://.godot/imported/2_trees.png-1ba33b45f4b26d08c3bc41475c715644.ctex"]
 
 [params]
 
